@@ -1,0 +1,88 @@
+body {
+    background-color: #121214;
+}
+
+* {
+    color: #FFF !important;
+}
+
+.card {
+    background: #29292e;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
+.row
+{
+    margin: 20px 0px;
+}
+
+.presentation span {
+    color: #f368e0 !important; 
+}
+
+.presentation p {
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+.presentation a {
+    margin: 0px 5px;
+}
+
+.presentation i {
+    color: #f1c40f !important;
+    font-size: 1.3rem;
+}
+
+.presentation img {
+    height: 500px;
+    width: auto;
+    border-radius: 12px;
+}
+
+.list-group {
+    background: #121214 !important;
+}
+
+.skills {
+    margin-top: 3rem;
+}
+
+.skills h4 {
+    color: #f368e0 !important; 
+}
+
+.skills ul
+{
+    list-style:none;
+}
+
+.skills ul li
+{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.btn-light {
+    background-color: #29292e;
+    border: 1px solid #29292e;
+}
+
+.btn-light:hover {
+    background-color: #29292e;
+    border: 1px solid #f1c40f;
+}
+
+.btn-primary {
+    background-color: #29292e;
+    border: 1px solid #29292e;
+}
+
+.btn-primary:hover {
+    background-color: #f1c40f;
+    border: 1px solid #f1c40f;
+}
+
+#main {
+    visibility: hidden
+}
