@@ -1,23 +1,12 @@
-<!doctype html>
-<html lang="en">
+<?php
+    get_header();
+    $template_dir = get_stylesheet_directory_uri();
+?>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Micaelly</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
 <body>
-    <div class="container">
-        <nav class="navbar">
-            <div class="container-fluid">
-                <h1>Micaelly Reges</h1>
-            </div>
-        </nav>
-    </div>
+    <?php
+    require_once "menu.php";
+    ?>
 
     <div class="container presentation">
         <div class="row d-flex justify-content-center align-items-center">
@@ -26,16 +15,17 @@
                 <h1>I'm <span>Full Stack</span></h1>
                 <p>Passionate about new challenges.</p>
 
-                <a href="#" class="btn btn-light"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="btn btn-light"><i class="bi bi-whatsapp"></i></a>
-                <a href="#" class="btn btn-light"><i class="bi bi-linkedin"></i></a>
-                <a href="#" class="btn btn-light"><i class="bi bi-github"></i></a>
+                <a target="_blank" href="<?php echo get_field('url_instagram', 13); ?>" class="btn btn-light"><i class="bi bi-instagram"></i></a>
+                <a target="_blank" href="<?php echo get_field('url_whatsapp', 13); ?>" class="btn btn-light"><i class="bi bi-whatsapp"></i></a>
+                <a target="_blank" href="<?php echo get_field('url_linkedin', 13); ?>" class="btn btn-light"><i class="bi bi-linkedin"></i></a>
+                <a target="_blank" href="<?php echo get_field('url_github', 13); ?>" class="btn btn-light"><i class="bi bi-github"></i></a>
 
-                <button type="button" class="btn btn-primary">Download CV</button>
+                <a target="_blank" href="<?php echo get_field('cv_url', 13); ?>" class="btn btn-primary">Download CV</a>
 
             </div>
             <div class="col-sm-12 col-md-6">
-                <img class="img-fluid" src="img/profile.jpeg">
+                <img class="img-fluid" src="<?php echo get_field('foto_perfil', 13)['url']; ?>">
+
             </div>
         </div>
     </div>
@@ -120,15 +110,10 @@
                     </li>
                     <li class="mb-2"><a href="#" class="btn btn-light"><i class="bi bi-phone"></i> (27) 99720-6738 </a>
                     </li>
-                    <li class="mb-2"><a href="#" class="btn btn-light"><i class="bi bi-envelope"></i>
-                            micareges@gmail.com </a></li>
+                    <li class="mb-2"><a href="#" class="btn btn-light"><i class="bi bi-envelope"></i> micareges@gmail.com </a></li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-        crossorigin="anonymous"></script>
-</body>
-</html>
+    <?php get_footer(); ?>
