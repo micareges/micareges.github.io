@@ -33,17 +33,50 @@
     <div class="container">
         <h2>Education 📚</h2>
 
+        <?php 
+        $rows = get_field('educacao', 13);
+        ?>
+
         <div class="row">
-            <div class="col-sm-12 col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Bacharelado,
-                            Sistemas de Informação</h4>
-                        <p class="card-text">2022 - 2026</p>
-                        <h5 class="card-title">FAESA</h5>
+
+        <?php
+
+        if ( $rows ) {
+        ?>
+            <?php
+                foreach( $rows as $row ) {
+                ?>
+                <div class="col-sm-12 col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"><?php echo  $row['nome_do_curso'] ?></h4>
+                            <p class="card-text"><?php echo  $row['ano_do_curso'] ?></p>
+                            <h5 class="card-title"><?php echo  $row['nome_da_instituicao'] ?></h5>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <?php
+                }
+            ?>
+           <?php
+        }   
+        ?>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Projects</h2>
+        <div class="row">
+            <?php 
+            $images = get_field('img_projetos', 13);
+            if( $images ): ?>
+                <?php foreach( $images as $image ): ?>
+                    <div class="col-sm-12 col-md-6 mt-3">
+                        <img class="img-fluid rounded" src="<?php echo esc_url($image['sizes']['large']); ?>">
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            
         </div>
     </div>
 
@@ -53,52 +86,104 @@
         <div class="row">
             <div class="col-sm-12 col-md-3">
                 <h4>Front-end</h4>
+
+                <?php 
+                    $rows = get_field('front-end', 13);
+                ?>
+                
+                <?php
+                
+                if ( $rows ) {
+                ?>
                 <ul class="list-group">
-                    <li>HTML5</li>
-                    <li>CSS3</li>
-                    <li>JS</li>
-                    <li>Bootstrap</li>
-                    <li>Figma</li>
-                    <li>Aprendendo ReactJS</li>
+                    <?php
+                        foreach( $rows as $row ) {
+                        ?>
+                            <li><?php echo  $row['habilidade'] ?></li>
+                        <?php
+                        }
+                    ?>
                 </ul>
+                <?php
+                }   
+                ?>
             </div>
 
             <div class="col-sm-12 col-md-3">
                 <h4>Back-end</h4>
+                
+                <?php 
+                    $rows = get_field('backend', 13);
+                ?>
+                
+                <?php
+                
+                if ( $rows ) {
+                ?>
                 <ul class="list-group">
-                    <li>PHP</li>
-                    <li>Wordpress</li>
+                    <?php
+                        foreach( $rows as $row ) {
+                        ?>
+                            <li><?php echo  $row['habiliade'] ?></li>
+                        <?php
+                        }
+                    ?>
                 </ul>
+                <?php
+                }   
+                ?>
             </div>
 
             <div class="col-sm-12 col-md-3">
                 <h4>Banco</h4>
-                <ul class="list-group">
-                    <li>MySQL</li>
-                </ul>
+                <?php 
+                        $rows = get_field('banco_de_dados', 13);
+                    ?>
+                    
+                    <?php
+                    
+                    if ( $rows ) {
+                    ?>
+                    <ul class="list-group">
+                        <?php
+                            foreach( $rows as $row ) {
+                            ?>
+                                <li><?php echo  $row['habilidade'] ?></li>
+                            <?php
+                            }
+                        ?>
+                    </ul>
+                    <?php
+                    }   
+                    ?>
             </div>
+
         </div>
+        <div class="col-sm-12 col-md-3">
+                <h2>Soft Skill 😄</h2>
+                <?php 
+                        $rows = get_field('soft_skill', 13);
+                    ?>
+                    
+                    <?php
+                    
+                    if ( $rows ) {
+                    ?>
+                    <ul class="list-group">
+                        <?php
+                            foreach( $rows as $row ) {
+                            ?>
+                                <li><?php echo  $row['habilidade'] ?></li>
+                            <?php
+                            }
+                        ?>
+                    </ul>
+                    <?php
+                    }   
+                    ?>
+            </div>
     </div>
 
-    <div class="container skills">
-        <h2>Soft Skill 😄</h2>
-
-        <div class="row">
-            <div class="col-sm-12 col-md-3">
-                <ul class="list-group">
-                    <li>#Comunicativa</li>
-                    <li>#Comprometimento</li>
-                    <li>#Facilidade de aprendizado</li>
-                    <li>#Responsável</li>
-                    <li>#Empático</li>
-                    <li>#Humilde</li>
-                    <li>#Atitude de dono</li>
-                    <li>#Trabalho em equipe</li>
-                    <li>#Criatividade</li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
     <div class="container skills">
         <h2>Contato </h2>
@@ -106,11 +191,11 @@
         <div class="row presentation">
             <div class="col-sm-12 col-md-3">
                 <ul class="list-group">
-                    <li class="mb-2"><a href="#" class="btn btn-light"><i class="bi bi-geo-alt"></i> Fundão - ES </a>
+                    <li target="_blank" class="mb-2"><a href="<?php echo get_field('localizacao', 13);?>" class="btn btn-light"><i class="bi bi-geo-alt"></i> Fundão - ES </a>
                     </li>
-                    <li class="mb-2"><a href="#" class="btn btn-light"><i class="bi bi-phone"></i> (27) 99720-6738 </a>
+                    <li class="mb-2"><a href="<?php echo get_field('celular', 13);?>" class="btn btn-light"><i class="bi bi-phone"></i> (27) 99720-6738 </a>
                     </li>
-                    <li class="mb-2"><a href="#" class="btn btn-light"><i class="bi bi-envelope"></i> micareges@gmail.com </a></li>
+                    <li class="mb-2"><a href="<?php echo get_field('email', 13);?>" class="btn btn-light"><i class="bi bi-envelope"></i> micareges@gmail.com </a></li>
                 </ul>
             </div>
         </div>
